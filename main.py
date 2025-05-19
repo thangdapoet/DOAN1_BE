@@ -13,7 +13,7 @@ app = FastAPI()
 # Allow all origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # <-- Allow all origins
+    allow_origins=["*"],  # <-- Allow all origins // cấu hình server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
