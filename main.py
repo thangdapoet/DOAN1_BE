@@ -13,7 +13,7 @@ app = FastAPI()
 # Allow all origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # <-- Allow all origins // cấu hình server
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -106,5 +106,5 @@ def receive_data(sensor_data: schemas.DataCreate, db: Session = Depends(database
         }
     except Exception as e:
         db.rollback()
-        logging.error(f"Sensor data error: {e}", exc_info=True)  # Logs traceback too
+        logging.error(f"Sensor data error: {e}", exc_info=True)  
         raise HTTPException(status_code=500, detail=str(e))
