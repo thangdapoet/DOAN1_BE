@@ -5,7 +5,6 @@ import schemas
 def get_product(session_id: int,db: Session):
     db_data = db.query(Data).where(Data.session_id == session_id)
     
-    # Convert SQLAlchemy objects to dictionaries
     return [{"id": data.id,
               "doam": data.doam,
                 "nhietdo": data.nhietdo,

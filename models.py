@@ -9,7 +9,6 @@ class Session(Base):
     id = Column(Integer, primary_key=True, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-    # Optional: backref for reverse access
     data_entries = relationship("Data", back_populates="session")
 
 
@@ -26,8 +25,8 @@ class Data(Base):
     c6h6 = Column(Double)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-    # Foreign key to Session table
+    
     session_id = Column(Integer, ForeignKey("session.id"))
 
-    # Optional: define relationship
+    
     session = relationship("Session", back_populates="data_entries")
